@@ -1,0 +1,5 @@
+daily: true
+log_path: /Users/tyler/Desktop
+access_file_name: access
+error_file_name: error
+debug_file_name: debug
