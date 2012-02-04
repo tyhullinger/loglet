@@ -1,0 +1,31 @@
+Loglet is a simple Ruby module tested in Ruby 1.9.3
+
+You can create several instances of this module and hook it into a Rails application if you would like.
+
+There are 3 different types of logs that can be written:
+access
+error
+debug
+
+Works great with exception handling and debugging.
+
+Some sample usage:
+
+l = Loglet::Log.new
+l.write("sup boy")
+l.write("this is fun")
+l.write("hello again")
+l.write("#{log_files.inspect}", "debug")
+
+log_files = l.current_logs
+
+log_files.each do |log|
+	puts log
+end
+
+begin
+	x = "1"
+	puts "fails" if x < 1
+rescue Exception => e
+	l.write("#{e} : #{e.backtrace}", 'error')
+end
